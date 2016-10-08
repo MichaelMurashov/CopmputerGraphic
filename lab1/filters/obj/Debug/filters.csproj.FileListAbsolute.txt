@@ -1,0 +1,2 @@
+c:\users\mmv\documents\filters\filters\bin\Debug\filters.exe.config
+C:\Users\mmv\Desktop\Project\ComputerGraphic\lab1\filters\bin\Debug\filters.exe.config
