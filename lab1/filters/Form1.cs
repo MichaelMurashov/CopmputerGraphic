@@ -173,7 +173,7 @@ namespace filters
         {
             if (pictureBox1.Image != null)
             {
-                Filters filter = new SobelFilter();
+                Filters filter = new SobelFilter(image);
                 backgroundWorker1.RunWorkerAsync(filter);
             }
         }
