@@ -22,7 +22,7 @@ namespace filters
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "Image files | *.png, *.jpg; *.bmp | All Files (*.*) | *.*";
+            dialog.Filter = "Image files | *.png; *.jpg; *.bmp | All Files (*.*) | *.*";
 
             if (dialog.ShowDialog() == DialogResult.OK)
                 image = new Bitmap(dialog.FileName);
@@ -186,5 +186,7 @@ namespace filters
                 backgroundWorker1.RunWorkerAsync(filter);
             }
         }
+
+        /* ---------- Morfologe ---------- */
     }
 }

@@ -282,4 +282,6 @@ namespace filters
             kernel = new float[sizeX, sizeY] { { 0, -1, 0 }, { -1, 5, -1 }, { 0, -1, 0 } };
         }
     }
+
+    /* ---------- Morfologe ---------- */
 }
