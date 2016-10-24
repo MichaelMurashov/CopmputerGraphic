@@ -149,6 +149,15 @@ namespace filters
             }
         }
 
+        private void поворотToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                Filters filter = new RoateFilter();
+                backgroundWorker1.RunWorkerAsync(filter);
+            }
+        }
+
         /* ---------- Matrix ---------- */
 
         private void размытиеToolStripMenuItem_Click(object sender, EventArgs e)
@@ -188,5 +197,41 @@ namespace filters
         }
 
         /* ---------- Morfologe ---------- */
+
+        private void сужениToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                Filters filter = new ErosionFilter();
+                backgroundWorker1.RunWorkerAsync(filter);
+            }
+        }
+
+        private void расширениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                Filters filter = new DilationFilter();
+                backgroundWorker1.RunWorkerAsync(filter);
+            }
+        }
+
+        private void открытиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                Filters filter = new OpeningFilter();
+                backgroundWorker1.RunWorkerAsync(filter);
+            }
+        }
+
+        private void закрытиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                Filters filter = new ClosingFilter();
+                backgroundWorker1.RunWorkerAsync(filter);
+            }
+        }
     }
 }

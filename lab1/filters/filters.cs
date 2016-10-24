@@ -12,7 +12,7 @@ namespace filters
     {
         protected abstract Color calculateNewPixelColor(Bitmap sourceImage, int x, int y);
 
-        public Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
+        public virtual Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
         {
             Bitmap resultImage = new Bitmap(sourceImage.Width, sourceImage.Height);
 
@@ -129,6 +129,23 @@ namespace filters
         }
     }
 
+    class RoateFilter : Filters
+    {
+        protected override Color calculateNewPixelColor(Bitmap sourceImage, int x, int y)
+        {
+            int x0 = sourceImage.Width / 2;
+            int y0 = sourceImage.Height / 2;
+            double center = Math.PI / 2;
+
+            int newX = Clamp((int)((x - x0) * Math.Cos(center) - (y - y0)
+                        * Math.Sin(center) + x0), 0, sourceImage.Width - 1);
+            int newY = Clamp((int)((x - x0) * Math.Sin(center) - (y - y0)
+                        * Math.Cos(center) + y0), 0, sourceImage.Height - 1);
+
+            return sourceImage.GetPixel(newX, newY);
+        }
+    }
+
     /* ---------- Matrix ---------- */
 
     class MatrixFilter : Filters
@@ -221,7 +238,7 @@ namespace filters
             picture = soursePic;
         }
 
-        private Color applyMatrix (float[,] kernel, int x, int y)
+        private Color applyKernel (float[,] kernel, int x, int y)
         {
             int radiusX = kernel.GetLength(0) / 2;
             int radiusY = kernel.GetLength(1) / 2;
@@ -251,22 +268,20 @@ namespace filters
         protected override Color calculateNewPixelColor(Bitmap sourceImage, int x, int y)
         {
             float resultR, resultG, resultB;
-            Color pixelX, pixelY;  // результаты пикселей по ядрам
+            Color pixelX, pixelY;
 
-            // подсчитали пиксели по ядрам
-            pixelX = applyMatrix(kernelX, x, y);
-            pixelY = applyMatrix(kernelY, x, y);
-
-            // вычислили градиент
+            pixelX = applyKernel(kernelX, x, y);
+            pixelY = applyKernel(kernelY, x, y);
+            
             resultR = (float)Math.Sqrt(Math.Pow(pixelX.R, 2) + Math.Pow(pixelY.R, 2));
             resultG = (float)Math.Sqrt(Math.Pow(pixelX.G, 2) + Math.Pow(pixelY.G, 2));
             resultB = (float)Math.Sqrt(Math.Pow(pixelX.B, 2) + Math.Pow(pixelY.B, 2));
 
-            // вернули результат
             return Color.FromArgb(
                         Clamp((int)resultR, 0, 255),
                         Clamp((int)resultG, 0, 255),
-                        Clamp((int)resultB, 0, 255));
+                        Clamp((int)resultB, 0, 255)
+                        );
         }
     }
 
@@ -281,4 +296,194 @@ namespace filters
     }
 
     /* ---------- Morfologe ---------- */
+
+    abstract class MorfologeFilter : Filters
+    {
+        protected int MW = 3, MH = 3;
+        protected int[,] Mask = { { 1, 1, 1 }, { 1, 1, 1 }, { 1, 1, 1 } };
+
+        public override Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
+        {
+            Bitmap resultImage = new Bitmap(sourceImage.Width, sourceImage.Height);
+
+            for (int i = MW / 2; i < sourceImage.Width - MW / 2; i++)
+            {
+                worker.ReportProgress((int)((float)i / resultImage.Width * 100));
+                if (worker.CancellationPending)
+                    return null;
+
+                for (int j = MH / 2; j < sourceImage.Height - MH / 2; j++)
+                    resultImage.SetPixel(i, j, calculateNewPixelColor(sourceImage, i, j));                
+            }
+
+            return resultImage;
+        }
+    }
+
+    class ErosionFilter : MorfologeFilter
+    {
+        protected override Color calculateNewPixelColor(Bitmap sourceImage, int x, int y)
+        {         
+            Color min = Color.FromArgb(255, 255, 255);
+
+            for (int j = -MH / 2; j <= MH / 2; j++)
+                for (int i = -MW / 2; i <= MW / 2; i++)
+                {
+                    Color pixel = sourceImage.GetPixel(x + i, y + j);
+
+                    if (Mask[i + MW / 2, j + MH / 2] != 0 && pixel.R < min.R && pixel.G < min.G && pixel.B < min.B)                    
+                        min = pixel;                    
+                }
+
+            return min;
+        }
+    }
+
+    class DilationFilter : MorfologeFilter
+    {
+        protected override Color calculateNewPixelColor(Bitmap sourceImage, int x, int y)
+        {
+            Color max = Color.FromArgb(0, 0, 0);
+
+            for (int j = -MH / 2; j <= MH / 2; j++)
+                for (int i = -MW / 2; i <= MW / 2; i++)
+                {
+                    Color pixel = sourceImage.GetPixel(x + i, y + j);
+
+                    if (Mask[i + MW / 2, j + MH / 2] == 1 && pixel.R > max.R && pixel.G > max.G && pixel.B > max.B)
+                        max = pixel;
+                }
+
+            return max;
+        }
+    }
+
+    class OpeningFilter : MorfologeFilter
+    {
+        public override Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
+        {
+            Bitmap erosion = new Bitmap(sourceImage.Width, sourceImage.Height);
+
+            for (int i = MW / 2; i < erosion.Width - MW / 2; i++)
+            {
+                worker.ReportProgress((int)((float)i / erosion.Width * 50));
+                if (worker.CancellationPending)
+                    return null;
+
+                for (int j = MH / 2; j < erosion.Height - MH / 2; j++)
+                    erosion.SetPixel(i, j, calculateNewPixelColor(sourceImage, i, j));
+            }
+
+            Bitmap result = new Bitmap(erosion);
+
+            for (int i = MW / 2; i < result.Width - MW / 2; i++)
+            {
+                worker.ReportProgress((int)((float)i / result.Width * 50 + 50));
+                if (worker.CancellationPending)
+                    return null;
+
+                for (int j = MH / 2; j < result.Height - MH / 2; j++)
+                    result.SetPixel(i, j, calcDilation(erosion, i, j));
+            }
+
+            return result;
+        }
+
+        protected override Color calculateNewPixelColor(Bitmap sourceImage, int x, int y)
+        {
+            Color min = Color.FromArgb(255, 255, 255);
+
+            for (int j = -MH / 2; j <= MH / 2; j++)
+                for (int i = -MW / 2; i <= MW / 2; i++)
+                {
+                    Color pixel = sourceImage.GetPixel(x + i, y + j);
+
+                    if (Mask[i + MW / 2, j + MH / 2] != 0 && pixel.R < min.R && pixel.G < min.G && pixel.B < min.B)
+                        min = pixel;
+                }
+
+            return min;
+        }
+
+        private Color calcDilation(Bitmap sourceImage, int x, int y)
+        {
+            Color max = Color.FromArgb(0, 0, 0);
+
+            for (int j = -MH / 2; j <= MH / 2; j++)
+                for (int i = -MW / 2; i <= MW / 2; i++)
+                {
+                    Color pixel = sourceImage.GetPixel(x + i, y + j);
+
+                    if (Mask[i + MW / 2, j + MH / 2] == 1 && pixel.R > max.R && pixel.G > max.G && pixel.B > max.B)
+                        max = pixel;
+                }
+
+            return max;
+        }
+    }
+
+    class ClosingFilter : MorfologeFilter
+    {
+        public override Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
+        {
+            Bitmap dilation = new Bitmap(sourceImage.Width, sourceImage.Height);
+
+            for (int i = MW / 2; i < dilation.Width - MW / 2; i++)
+            {
+                worker.ReportProgress((int)((float)i / dilation.Width * 50));
+                if (worker.CancellationPending)
+                    return null;
+
+                for (int j = MH / 2; j < dilation.Height - MH / 2; j++)
+                    dilation.SetPixel(i, j, calculateNewPixelColor(sourceImage, i, j));
+            }
+
+            Bitmap result = new Bitmap(dilation);
+
+            for (int i = MW / 2; i < result.Width - MW / 2; i++)
+            {
+                worker.ReportProgress((int)((float)i / result.Width * 50 + 50));
+                if (worker.CancellationPending)
+                    return null;
+
+                for (int j = MH / 2; j < result.Height - MH / 2; j++)
+                    result.SetPixel(i, j, calcErosion(dilation, i, j));
+            }
+
+            return result;
+        }
+
+        protected override Color calculateNewPixelColor(Bitmap sourceImage, int x, int y)
+        {
+
+            Color max = Color.FromArgb(0, 0, 0);
+
+            for (int j = -MH / 2; j <= MH / 2; j++)
+                for (int i = -MW / 2; i <= MW / 2; i++)
+                {
+                    Color pixel = sourceImage.GetPixel(x + i, y + j);
+
+                    if (Mask[i + MW / 2, j + MH / 2] == 1 && pixel.R > max.R && pixel.G > max.G && pixel.B > max.B)
+                        max = pixel;
+                }
+
+            return max;
+        }
+
+        private Color calcErosion(Bitmap sourceImage, int x, int y)
+        {
+            Color min = Color.FromArgb(255, 255, 255);
+
+            for (int j = -MH / 2; j <= MH / 2; j++)
+                for (int i = -MW / 2; i <= MW / 2; i++)
+                {
+                    Color pixel = sourceImage.GetPixel(x + i, y + j);
+
+                    if (Mask[i + MW / 2, j + MH / 2] != 0 && pixel.R < min.R && pixel.G < min.G && pixel.B < min.B)
+                        min = pixel;
+                }
+
+            return min;
+        }
+    }
 }
