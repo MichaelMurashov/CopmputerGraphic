@@ -51,36 +51,44 @@ void View::drawQuads(int layerNumber) {
 
     for (int x_coord = 0; x_coord < X - 1; x_coord++)
         for (int y_coord = 0; y_coord < Y - 1; y_coord++) {
-            short value;
-            float color;
+          short value;
+          float color;
 
-            // 1st top
-            value = array[x_coord + y_coord * X
-                               + layerNumber * X * Y];
-            color = transferFunction(value) / 255.f;
+          // 1st top
+          value = array[x_coord + y_coord * X + layerNumber * X * Y];
+          color = transferFunction(value) / 255.f;
+          if (color > 0.6)
+            glColor3f(0, 128, 0);
+          else
             glColor3f(color, color, color);
-            glVertex2f(x_coord, y_coord);
+          glVertex2f(x_coord, y_coord);
 
-            // 2nd top
-            value = array[x_coord + (y_coord + 1) * X
-                               + layerNumber * X * Y];
-            color = transferFunction(value) / 255.f;
+          // 2nd top
+          value = array[x_coord + (y_coord + 1) * X + layerNumber * X * Y];
+          color = transferFunction(value) / 255.f;
+          if (color > 0.6)
+            glColor3f(0, 128, 0);
+          else
             glColor3f(color, color, color);
-            glVertex2f(x_coord, y_coord + 1);
+          glVertex2f(x_coord, y_coord + 1);
 
-            // 3th top
-            value = array[x_coord + 1 + (y_coord + 1) * X
-                               + layerNumber * X * Y];
-            color = transferFunction(value) / 255.f;
+          // 3th top
+          value = array[x_coord + 1 + (y_coord + 1) * X + layerNumber * X * Y];
+          color = transferFunction(value) / 255.f;
+          if (color > 0.6)
+            glColor3f(0, 128, 0);
+          else
             glColor3f(color, color, color);
-            glVertex2f(x_coord + 1, y_coord + 1);
+          glVertex2f(x_coord + 1, y_coord + 1);
 
-            // 4th top
-            value = array[x_coord + 1 + y_coord * X
-                               + layerNumber * X * Y];
-            color = transferFunction(value) / 255.f;
+          // 4th top
+          value = array[x_coord + 1 + y_coord * X + layerNumber * X * Y];
+          color = transferFunction(value) / 255.f;
+          if (color > 0.6)
+            glColor3f(0, 128, 0);
+          else
             glColor3f(color, color, color);
-            glVertex2f(x_coord + 1, y_coord);
+          glVertex2f(x_coord + 1, y_coord);
         }
 
     glEnd();
@@ -88,13 +96,23 @@ void View::drawQuads(int layerNumber) {
 
 void ::View::progressKey(int key, int x, int y) {
     switch (key) {
-        case GLUT_KEY_RIGHT:
-            currentLayer = static_cast<int>( clamp(currentLayer + 1, 0, Z - 1) );
-            break;
+      case GLUT_KEY_RIGHT:
+        currentLayer = static_cast<int>( clamp(currentLayer + 1, 0, Z - 1) );
+        break;
 
-        case GLUT_KEY_LEFT:
-            currentLayer = static_cast<int>( clamp(currentLayer - 1, 0, Z - 1) );
-            break;
+      case GLUT_KEY_LEFT:
+        currentLayer = static_cast<int>( clamp(currentLayer - 1, 0, Z - 1) );
+        break;
+
+      case GLUT_KEY_UP:
+        min = clamp(min - 50, -3000, 0);
+        max = clamp(max - 500, 0, 16000);
+        break;
+
+      case GLUT_KEY_DOWN:
+        min = clamp(min + 100, -3000, 0);
+        max = clamp(max + 100, 0, 16000);
+        break;
     }
 
     glutPostRedisplay();
