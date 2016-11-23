@@ -3,11 +3,22 @@
 //
 
 #include "GL/glut.h"
+#include "view.h"
 
-int main(int argc, char **argv) {
+int main(int argc, char** argv) {
+    View::readBin("../legs.bin");
+    int width = 800, height = 600;
+
     glutInit(&argc, argv);
-    glutInitWindowSize(600, 600);
-    glutCreateWindow("opengl");
+    glutInitWindowSize(width, height);
+    glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
+    glutCreateWindow("open_gl");
 
+    View::setupView(width, height);
+    glutDisplayFunc(View::render);
+
+    glutSpecialFunc(View::progressKey);
+
+    glutMainLoop();
     return 0;
 }
