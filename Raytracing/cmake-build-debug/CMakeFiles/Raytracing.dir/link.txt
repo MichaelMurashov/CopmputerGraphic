@@ -1,1 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/c++   -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/Raytracing.dir/main.cpp.o  -o Raytracing -framework OpenGL -framework GLUT 
