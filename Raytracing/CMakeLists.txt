@@ -10,18 +10,19 @@ set(LIBRARY "lib_${MODULE}")
 add_subdirectory(src)
 
 #########################################################
-# FIND GLUT
+# FIND GLEW
 #########################################################
 
-find_package(GLUT REQUIRED)
+find_package(GLEW REQUIRED)
 
-include_directories(${GLUT_INCLUDE_DIRS})
-link_directories(${GLUT_LIBRARY_DIRS})
-add_definitions(${GLUT_DEFINITIONS})
+include_directories(${GLEW_INCLUDE_DIRS})
+link_directories(${GLEW_LIBRARY_DIRS})
+add_definitions(${GLEW_DEFINITIONS})
 
 #########################################################
 # FIND OPENGL
 #########################################################
+
 find_package(OpenGL REQUIRED)
 
 include_directories(${OpenGL_INCLUDE_DIRS})
@@ -33,4 +34,8 @@ add_definitions(${OpenGL_DEFINITIONS})
 set(SOURCE_FILES main.cpp)
 add_executable(Raytracing ${SOURCE_FILES})
 
-target_link_libraries(Raytracing ${OPENGL_gl_LIBRARY} ${GLUT_glut_LIBRARY})
+target_link_libraries(Raytracing ${OPENGL_gl_LIBRARY} ${GLFW_STATIC_LIBRARIES})
+
+if (APPLE)
+    target_link_libraries(Raytracing "-framework OpenGL")
+endif()
