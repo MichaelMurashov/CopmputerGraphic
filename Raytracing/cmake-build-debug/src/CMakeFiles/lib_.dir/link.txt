@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc liblib_.a  CMakeFiles/lib_.dir/shader.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib liblib_.a

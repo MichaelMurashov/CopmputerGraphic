@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/Raytracing/main.cpp
+iostream
+-
+OpenGL/gl.h
+-
+GLUT/glut.h
+-
+
