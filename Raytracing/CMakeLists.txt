@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 include_directories("./include")
 
-set(LIBRARY "lib_${MODULE}")
+set(LIBRARY "_ray")
 
 add_subdirectory(src)
 
@@ -17,7 +17,7 @@ find_package(GLEW REQUIRED)
 
 include_directories(${GLEW_INCLUDE_DIRS})
 link_directories(${GLEW_LIBRARY_DIRS})
-add_definitions(${GLEW_DEFINITIONS})
+#add_definitions(${GLEW_DEFINITIONS})
 
 #########################################################
 # FIND OPENGL
@@ -27,15 +27,20 @@ find_package(OpenGL REQUIRED)
 
 include_directories(${OpenGL_INCLUDE_DIRS})
 link_directories(${OpenGL_LIBRARY_DIRS})
-add_definitions(${OpenGL_DEFINITIONS})
+#add_definitions(${OpenGL_DEFINITIONS})
+
+#########################################################
+# FIND GLFW
+#########################################################
+
+find_package(glfw3 REQUIRED)
+include_directories(${GLFW_INCLUDE_DIRS})
 
 #########################################################
 
 set(SOURCE_FILES main.cpp)
 add_executable(Raytracing ${SOURCE_FILES})
 
-target_link_libraries(Raytracing ${OPENGL_gl_LIBRARY} ${GLFW_STATIC_LIBRARIES})
+target_link_libraries(Raytracing ${LIBRARY} ${OPENGL_gl_LIBRARY} glfw ${GLEW_LIBRARIES})
+#target_link_libraries(Raytracing "-framework OpenGL")
 
-if (APPLE)
-    target_link_libraries(Raytracing "-framework OpenGL")
-endif()
