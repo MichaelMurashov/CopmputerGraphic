@@ -3,3 +3,7 @@
 
 black-white/.idea
 black-white/cmake-build-debug
+
+Raytracing/cmake-build-debug
+Raytracing/.idea
+Raytracing/.DS_Store
