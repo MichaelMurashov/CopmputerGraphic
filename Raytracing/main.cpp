@@ -1,6 +1,6 @@
 #include "scene.h"
 
-int main(int argc, char **argv) {
+int main() {
     Scene::width = 600;
     Scene::heigth = 600;
 
@@ -9,8 +9,9 @@ int main(int argc, char **argv) {
     // Set all the required options for GLFW
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
+//    glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
     // Create a GLFWwindow object that we can use for GLFW's functions
     GLFWwindow* window = glfwCreateWindow(Scene::width, Scene::heigth, "ray", nullptr, nullptr);

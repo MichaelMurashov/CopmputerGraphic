@@ -1,7 +1,7 @@
 #ifndef RAYTRACING_SHADER_H
 #define RAYTRACING_SHADER_H
 
-#include <GL/glew.h>
+//#include <GL/glew.h>
 #include <OpenGL/gl.h>
 
 namespace Shader {
