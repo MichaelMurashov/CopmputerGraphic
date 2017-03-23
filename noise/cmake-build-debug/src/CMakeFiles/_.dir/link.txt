@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc lib_.a  CMakeFiles/_.dir/noise.cpp.o CMakeFiles/_.dir/rgbtogray.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib lib_.a
