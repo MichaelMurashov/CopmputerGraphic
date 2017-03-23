@@ -1,0 +1,6 @@
+/Users/michaelmurashov/Desktop/1Projects/CopmputerGraphic/noise/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/michaelmurashov/Desktop/1Projects/CopmputerGraphic/noise/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/michaelmurashov/Desktop/1Projects/CopmputerGraphic/noise/cmake-build-debug/CMakeFiles/noise.dir
+/Users/michaelmurashov/Desktop/1Projects/CopmputerGraphic/noise/cmake-build-debug/src/CMakeFiles/edit_cache.dir
+/Users/michaelmurashov/Desktop/1Projects/CopmputerGraphic/noise/cmake-build-debug/src/CMakeFiles/rebuild_cache.dir
+/Users/michaelmurashov/Desktop/1Projects/CopmputerGraphic/noise/cmake-build-debug/src/CMakeFiles/_noise.dir

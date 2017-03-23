@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="moise"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\..\usr\local\opt\;CMake Files\..\..\..\..\..\..\usr\local\opt\opencv3\;CMake Files\..\..\..\..\..\..\usr\local\opt\opencv3\share\;CMake Files\..\..\..\..\..\..\usr\local\opt\opencv3\share\OpenCV\;CMake Files\src\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="black_white">
+				<Option output="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/black_white" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/./include"/>
+					<Add directory="/usr/local/Cellar/opencv3/HEAD-3450528/include"/>
+					<Add directory="/usr/local/Cellar/opencv3/HEAD-3450528/include/opencv"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/Makefile&quot;  VERBOSE=1 black_white"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="black_white/fast">
+				<Option output="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/black_white" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/./include"/>
+					<Add directory="/usr/local/Cellar/opencv3/HEAD-3450528/include"/>
+					<Add directory="/usr/local/Cellar/opencv3/HEAD-3450528/include/opencv"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/Makefile&quot;  VERBOSE=1 black_white/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="_bin">
+				<Option output="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/src/lib_bin.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/./include"/>
+					<Add directory="/usr/local/Cellar/opencv3/HEAD-3450528/include"/>
+					<Add directory="/usr/local/Cellar/opencv3/HEAD-3450528/include/opencv"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 _bin"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="_bin/fast">
+				<Option output="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/src/lib_bin.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/./include"/>
+					<Add directory="/usr/local/Cellar/opencv3/HEAD-3450528/include"/>
+					<Add directory="/usr/local/Cellar/opencv3/HEAD-3450528/include/opencv"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 _bin/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/include/noise.h">
+			<Option target="_bin"/>
+		</Unit>
+		<Unit filename="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/main.cpp">
+			<Option target="black_white"/>
+		</Unit>
+		<Unit filename="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/src/noise.cpp">
+			<Option target="_bin"/>
+		</Unit>
+		<Unit filename="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/src/rgbtogray.cpp">
+			<Option target="_bin"/>
+		</Unit>
+		<Unit filename="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/../../../../../../usr/local/opt/opencv3/share/OpenCV/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\opt\opencv3\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/../../../../../../usr/local/opt/opencv3/share/OpenCV/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\opt\opencv3\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/../../../../../../usr/local/opt/opencv3/share/OpenCV/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\opt\opencv3\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/../../../../../../usr/local/opt/opencv3/share/OpenCV/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\opt\opencv3\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/../../../../../../usr/local/opt/opencv3/share/OpenCV/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\opt\opencv3\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/../../../../../../usr/local/opt/opencv3/share/OpenCV/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\opt\opencv3\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/../../../../../../usr/local/opt/opencv3/share/OpenCV/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\opt\opencv3\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/../../../../../../usr/local/opt/opencv3/share/OpenCV/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\opt\opencv3\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/Users/michaelmurashov/Desktop/аProjects/CopmputerGraphic/noise/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
