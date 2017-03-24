@@ -1,10 +1,12 @@
-#include "src/rgbtogray.cpp"
+#include <opencv2/highgui.hpp>
+
+#include "grayScale.h"
 #include "noise.h"
 #include "morfology.h"
 
 int main() {
     Mat img = imread("image.jpg");
-    Mat grayImg = intensity(img);
+    Mat grayImg = GrayScale::intensity(img);
 
 //    Noise noiseImg(grayImg);
 

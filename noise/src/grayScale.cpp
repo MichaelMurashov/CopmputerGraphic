@@ -1,8 +1,6 @@
-#include <opencv2/highgui.hpp>
+#include "grayScale.h"
 
-using namespace cv;
-
-Mat method_3(Mat& img) {
+Mat GrayScale::method_3(Mat &img) {
     Mat result = img.clone();
 
     for (int i = 0; i < img.rows; i++)
@@ -13,13 +11,14 @@ Mat method_3(Mat& img) {
             double green = color.val[1];
             double red = color.val[2];
 
-            result.at<Vec3b>(i, j) = Vec3b((blue + green + red)/3, (blue + green + red)/3, (blue + green + red)/3);
+            result.at<Vec3b>(i, j) = Vec3b((uchar)((blue + green + red) / 3), (uchar)((blue + green + red) / 3),
+                                           (uchar)((blue + green + red) / 3));
         }
 
     return result;
 }
 
-Mat intensity(Mat& img) {
+Mat GrayScale::intensity(Mat &img) {
     Mat result = img.clone();
 
     for (int i = 0; i < img.rows; i++)
@@ -30,7 +29,8 @@ Mat intensity(Mat& img) {
             double green = 0.53 * color.val[1];
             double red = 0.36 * color.val[2];
 
-            result.at<Vec3b>(i, j) = Vec3b(blue + green + red, blue + green + red, blue + green + red);
+            result.at<Vec3b>(i, j) = Vec3b((uchar)(blue + green + red), (uchar)(blue + green + red),
+                                           (uchar)(blue + green + red));
         }
 
     return result;

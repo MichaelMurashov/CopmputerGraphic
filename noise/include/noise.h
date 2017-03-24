@@ -1,18 +1,12 @@
 #ifndef NOISE_NOISE_H
 #define NOISE_NOISE_H
 
-#include <opencv2/opencv.hpp>
+#include <opencv2/imgproc.hpp>
 
 using cv::Mat;
 
-class Noise {
-public:
-    Noise(Mat& img);
-
-    Mat getNoiseImg();
-
-private:
-    Mat _img;
-};
+namespace Noise {
+    Mat erlangNoise(Mat &img);
+}
 
 #endif //NOISE_NOISE_H
