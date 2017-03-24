@@ -8,7 +8,7 @@ int main() {
 
 //    Noise noiseImg(grayImg);
 
-    Mat open = Morfology::erosion(img);
+    Mat open = Morfology::closing(img);
 
     imshow("qwe", open);
     waitKey(0);
