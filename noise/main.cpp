@@ -1,5 +1,6 @@
 #include "src/rgbtogray.cpp"
 #include "noise.h"
+#include "morfology.h"
 
 int main() {
     Mat img = imread("image.jpg");
@@ -7,9 +8,9 @@ int main() {
 
 //    Noise noiseImg(grayImg);
 
+    Mat open = Morfology::opening(img);
 
-
-    imshow("qwe", grayImg);
+    imshow("qwe", open);
     waitKey(0);
 
     return 0;

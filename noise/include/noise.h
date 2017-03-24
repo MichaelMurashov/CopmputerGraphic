@@ -1,5 +1,5 @@
-#ifndef BLACK_WHITE_NOISE_H
-#define BLACK_WHITE_NOISE_H
+#ifndef NOISE_NOISE_H
+#define NOISE_NOISE_H
 
 #include <opencv2/opencv.hpp>
 
@@ -15,4 +15,4 @@ private:
     Mat _img;
 };
 
-#endif //BLACK_WHITE_NOISE_H
+#endif //NOISE_NOISE_H
