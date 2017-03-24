@@ -14,9 +14,9 @@ namespace Morfology {
     Mat closing(const Mat& img);  // закрытие
     Mat opening(const Mat& img);  // открытие
 
-    int _mask[SIZE][SIZE] = {{1,1,1},
-                             {1,1,1},
-                             {1,1,1}};
+    static int _mask[SIZE][SIZE] = {{1,1,1},
+                                    {1,1,1},
+                                    {1,1,1}};
 };
 
 #endif //NOISE_MORFOLOGY_H
