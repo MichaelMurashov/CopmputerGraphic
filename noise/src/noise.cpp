@@ -6,7 +6,7 @@ double genGammaRand(const int barrier) {
     std::default_random_engine generator;
     std::gamma_distribution<double> distribution(2.0,2.0);
 
-    
+
 
 }
 
