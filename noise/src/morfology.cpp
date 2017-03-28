@@ -2,7 +2,7 @@
 
 Mat Morfology::erosion(const Mat &img) {
     Mat result(img.rows, img.cols, img.type());
-    int radius = SIZE / 2;
+    int radius = SIZE_OF_MASK / 2;
 
     for(int x = radius; x < img.rows - radius; x++)
         for(int y = radius; y < img.cols - radius; y++) {
@@ -25,7 +25,7 @@ Mat Morfology::erosion(const Mat &img) {
 
 Mat Morfology::dilation(const Mat &img) {
     Mat result(img.rows, img.cols, img.type());
-    int radius = SIZE / 2;
+    int radius = SIZE_OF_MASK / 2;
 
     for(int x = radius; x < img.rows - radius; x++)
         for(int y = radius; y < img.cols - radius; y++) {

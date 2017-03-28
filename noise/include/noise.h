@@ -6,7 +6,7 @@
 using cv::Mat;
 
 namespace Noise {
-    Mat erlangNoise(Mat &img);
+    Mat erlangNoise(const Mat &img, const int barrier);
 }
 
 #endif //NOISE_NOISE_H
