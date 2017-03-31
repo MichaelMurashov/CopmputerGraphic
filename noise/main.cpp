@@ -13,10 +13,10 @@ int main() {
     Mat noiseImg = Noise::erlangNoise(grayImg);
 
     imshow("noise", noiseImg);
-    Hist::showHist("noise hist", noiseImg);
+//    Hist::showHist("noise hist", noiseImg);
 
-    Mat morfImg = Morfology::closing(noiseImg);
-    imshow("close", morfImg);
+//    Mat morfImg = Morfology::closing(noiseImg);
+//    imshow("close", morfImg);
 
     waitKey(0);
     return 0;
