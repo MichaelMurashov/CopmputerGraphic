@@ -3,42 +3,19 @@
 
 #include "gammaNoise.h"
 
-double Noise::genGammaRand() {
+Mat Noise::erlangNoise(const Mat &img) {
     unsigned seed = (unsigned)std::chrono::system_clock::now().time_since_epoch().count();
     std::default_random_engine generator(seed);
     std::gamma_distribution<double> distribution(2.0, 4.0);
 
-    return distribution(generator);
-}
+    Mat result(img.size(), img.type());
 
-Mat Noise::erlangNoise(const Mat &img) {
-//    Mat result(img.size(), img.type());
-//
-//    for(int i = 0; i < img.rows; i++)
-//        for(int j = 0; j < img.cols; j++) {
-//            Vec3b color = img.at<Vec3b>(i, j);
-//
-//            double num = Noise::genGammaRand();
-//
-//            double blue = Noise::clamp(color.val[0] + num);
-//            double green = Noise::clamp(color.val[1] + num);
-//            double red = Noise::clamp(color.val[2] + num);
-//
-//            result.at<Vec3b>(i, j) = Vec3b(blue, green, red);
-//        }
-//
-//    return result;
-
-    Mat result(img.rows, img.cols, img.type());
-    //Mat result = img.clone();
     for (int x = 0; x < img.rows; x++)
-    {
-        for(int y = 0; y < img.cols; y++)
-        {
-            std::cout << genGammaRand() << " ";
+        for(int y = 0; y < img.cols; y++) {
+//            std::cout << genGammaRand() << " ";
 
             Vec3b pixel = img.at<Vec3b>(x, y);
-            double coef = genGammaRand();
+            double coef = distribution(generator);
 
             uchar blue = clamp(pixel.val[0] + coef);
             uchar green = clamp(pixel.val[1] + coef);
@@ -46,7 +23,7 @@ Mat Noise::erlangNoise(const Mat &img) {
 
             result.at<Vec3b>(x,y) = Vec3b(blue, green, red);
         }
-    }
+
     return result;
 }
 

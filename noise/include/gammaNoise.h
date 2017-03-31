@@ -7,7 +7,6 @@ using cv::Mat;
 using cv::Vec3b;
 
 namespace Noise {
-    double genGammaRand();
     Mat erlangNoise(const Mat &img);
     uchar clamp(double value);
 }

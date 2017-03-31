@@ -3,7 +3,8 @@
 
 #include <opencv2/imgproc.hpp>
 
-using namespace cv;
+using cv::Mat;
+using cv::Vec3b;
 
 const size_t SIZE_OF_MASK = 3;
 
@@ -14,7 +15,7 @@ namespace Morfology {
     Mat closing(const Mat &img);  // закрытие
     Mat opening(const Mat &img);  // открытие
 
-    int clamp(int value);
+    int clamp(int value, int left, int right);
 
     static int _mask[SIZE_OF_MASK][SIZE_OF_MASK] = {{1, 1, 1},
                                                     {1, 1, 1},

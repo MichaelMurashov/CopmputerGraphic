@@ -15,8 +15,8 @@ int main() {
     imshow("noise", noiseImg);
 //    Hist::showHist("noise hist", noiseImg);
 
-//    Mat morfImg = Morfology::closing(noiseImg);
-//    imshow("close", morfImg);
+    Mat morfImg = Morfology::dilation(noiseImg);
+    imshow("close", morfImg);
 
     waitKey(0);
     return 0;

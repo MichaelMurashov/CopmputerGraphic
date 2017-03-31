@@ -10,7 +10,7 @@ Mat Morfology::erosion(const Mat &img) {
 
             for(int i = -radius; i <= radius; i++)
                 for(int j = -radius; j <= radius; j++) {
-                    Vec3b color = img.at<Vec3b>(clamp(x + i), clamp(y + j));
+                    Vec3b color = img.at<Vec3b>(clamp(x + i, 0, img.rows), clamp(y + j, 0, img.cols));
 
                     if (_mask[i + radius][j + radius] != 0 &&
                             color.val[0] < min.val[0] && color.val[1] < min.val[1] && color.val[2] < min.val[2])
@@ -33,7 +33,7 @@ Mat Morfology::dilation(const Mat &img) {
 
             for(int i = -radius; i <= radius; i++)
                 for(int j = -radius; j <= radius; j++) {
-                    Vec3b color = img.at<Vec3b>(clamp(x + i), clamp(y + j));
+                    Vec3b color = img.at<Vec3b>(clamp(x + i, 0, img.rows), clamp(y + j, 0, img.cols));
 
                     if (_mask[i + radius][j + radius] != 0 &&
                             color.val[0] > max.val[0] && color.val[1] > max.val[1] && color.val[2] > max.val[2])
@@ -56,11 +56,11 @@ Mat Morfology::closing(const Mat &img) {
     return Morfology::erosion(result);
 }
 
-int Morfology::clamp(int value) {
-    if(value < 0)
-        return 0;
-    else if(value > 255)
-        return 255;
+int Morfology::clamp(int value, int left, int right) {
+    if(value < left)
+        return left;
+    else if(value > right)
+        return right;
     else
         return value;
 }
