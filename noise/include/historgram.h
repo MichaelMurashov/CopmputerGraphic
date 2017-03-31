@@ -5,7 +5,7 @@
 #include <opencv2/highgui.hpp>
 
 namespace Hist {
-    void showHist(const Mat& img) {
+    void showHist(const std::string name, const Mat& img) {
         Mat hist;
 
         int bins = 256;
@@ -27,7 +27,7 @@ namespace Hist {
                  Point(i, hist_h), Scalar::all(255));
         }
 
-        imshow("histogram", imgHist);
+        imshow(name, imgHist);
     }
 }
 
