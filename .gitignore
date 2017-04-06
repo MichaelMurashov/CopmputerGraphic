@@ -7,3 +7,8 @@ black-white/cmake-build-debug
 Raytracing/cmake-build-debug
 Raytracing/.idea
 Raytracing/.DS_Store
+
+noise/cmake-build-debug
+noise/.idea
+noise/.DS_Store
+
