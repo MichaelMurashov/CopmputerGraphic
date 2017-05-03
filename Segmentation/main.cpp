@@ -10,7 +10,7 @@ int getIntensity(const Mat& image, int x, int y)  {
     return (int)(0.11 * color.val[0] + 0.53 * color.val[1] + 0.36 * color.val[2]);
 }
 
-int check(const vector<vector<int>>& segments, int intensity) {
+int check(const vector<vector<Vec3b>>& segments, Vec3b intensity) {
     for (int i = 0; i < segments.size(); i++)
         if (segments[i].operator[](0) == intensity)
             return i;
@@ -28,14 +28,14 @@ int clamp(int value, int min, int max) {
 
 int main() {
     Mat src = imread("../images/Unnamed.png");
-    imshow("src", src);
+//    imshow("src", src);
 
-    vector<vector<int>> segments;
+    vector<vector<Vec3b>> segments;
 //    int range = 10;
 
     for (int i = 0; i < src.rows; i++)
         for (int j = 0; j < src.cols; j++) {
-            int intensity = getIntensity(src, i, j);
+            Vec3b intensity = src.at<Vec3b>(i, j);
             int pos = check(segments, intensity);
 
             // если такой пиксель найден, прибавляем к площади
@@ -43,7 +43,7 @@ int main() {
             if (pos != -1) {
                 segments[pos].push_back(intensity);
             } else {
-                segments.push_back(vector<int>());
+                segments.push_back(vector<Vec3b>());
                 segments[segments.size() - 1].push_back(intensity);
             }
         }
@@ -54,13 +54,13 @@ int main() {
 
         for (int x = 1; x < src.rows - 1; x++)
             for (int y = 1; y < src.cols - 1; y++) {
-                int source = segments[i].operator[](0);
-                int intensity = getIntensity(src, x, y);
+                Vec3b source = segments[i].operator[](0);
+                Vec3b intensity = src.at<Vec3b>(x, y);
 
-                int left  = getIntensity(src, x - 1, y    );
-                int up    = getIntensity(src, x,     y + 1);
-                int right = getIntensity(src, x + 1, y    );
-                int down  = getIntensity(src, x,     y - 1);
+                Vec3b left  = src.at<Vec3b>(x - 1, y);
+                Vec3b up    = src.at<Vec3b>(x,     y + 1);
+                Vec3b right = src.at<Vec3b>(x + 1, y);
+                Vec3b down  = src.at<Vec3b>(x,     y - 1);
 
                 if (intensity == source && (left != source || up != source || right != source || down != source))
                     perimeters[i]++;
@@ -72,10 +72,10 @@ int main() {
          << "Статистика сегментов:" << endl;
 
     for (int i = 0; i < segments.size(); i++)
-        cout << "   сегмент №" << i << " (" << segments[i].operator[](0) << ")" << endl
+        cout << "   сегмент №" << i << " " << segments[i].operator[](0) << endl
              << "       площадь - " << segments[i].size() << endl
              << "       периметр - " << perimeters[i] << endl;
 
-    waitKey(0);
+//    waitKey(0);
     return 0;
 }
