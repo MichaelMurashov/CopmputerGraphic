@@ -12,3 +12,6 @@ noise/cmake-build-debug
 noise/.idea
 noise/.DS_Store
 
+Segmentation/cmake-build-debug
+Segmentation/.idea
+Segmentation/.DS_Store
