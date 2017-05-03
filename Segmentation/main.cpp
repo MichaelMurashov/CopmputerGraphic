@@ -72,9 +72,11 @@ int main() {
          << "Статистика сегментов:" << endl;
 
     for (int i = 0; i < segments.size(); i++)
-        cout << "   сегмент №" << i << " " << segments[i].operator[](0) << endl
+        cout << "   сегмент №" << i << endl
+             << "       цвет - " << segments[i].operator[](0) << endl
              << "       площадь - " << segments[i].size() << endl
-             << "       периметр - " << perimeters[i] << endl;
+             << "       периметр - " << perimeters[i] << endl
+             << "       компактность - " << (perimeters[i] * perimeters[i]) / segments[i].size() << endl;
 
 //    waitKey(0);
     return 0;
