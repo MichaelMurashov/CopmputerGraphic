@@ -15,3 +15,7 @@ noise/.DS_Store
 Segmentation/cmake-build-debug
 Segmentation/.idea
 Segmentation/.DS_Store
+
+RLC/cmake-build-debug
+RCL/.idea
+RLC/.DS_Store
