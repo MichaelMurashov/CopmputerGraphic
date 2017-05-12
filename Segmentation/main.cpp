@@ -5,12 +5,14 @@
 using namespace std;
 using namespace cv;
 
+const int RANGE = 10;
+
 int getIntensity(const Vec3b& color)  {
     return (int)(0.11 * color.val[0] + 0.53 * color.val[1] + 0.36 * color.val[2]);
 }
 
 int check(const vector<vector<Vec3b>>& segments, Vec3b pixel) {
-    Vec3b range(2, 2, 2);
+    Vec3b range(RANGE, RANGE, RANGE);
 
     for (int i = 0; i < segments.size(); i++) {
         Vec3b threshold = segments[i].operator[](0);
@@ -36,7 +38,7 @@ int clamp(int value, int min, int max) {
 
 int main() {
     const Mat src = imread("../images/qwe.png");
-//    imshow("src", src);
+    imshow("src", src);
 
     vector<vector<Vec3b>> segments;
 
@@ -86,6 +88,6 @@ int main() {
              << "       периметр - " << perimeters[i] << endl
              << "       компактность - " << (perimeters[i] * perimeters[i]) / segments[i].size() << endl;
 
-//    waitKey(0);
+    waitKey(0);
     return 0;
 }
